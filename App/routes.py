@@ -1,4 +1,6 @@
-from . import app,jsonify
+from . import app, jsonify
+
+
 @app.route("/")
 def runs():
-	return jsonify({"hello":"links"})
+    return jsonify({"hello": "links"})
