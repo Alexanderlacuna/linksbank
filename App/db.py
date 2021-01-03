@@ -6,9 +6,9 @@ from flask import jsonify
 class Links(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     public_id = db.Column(db.String(256), unique=True, nullable=False)
-    access = db.Column(db.String(20),default="private")
+    access = db.Column(db.String(20), default="private")
     title = db.Column(db.String(128), nullable=False)
-    description = db.Column(db.Text,nullable=False)
+    description = db.Column(db.Text, nullable=False)
     link = db.Column(db.String(128), nullable=False)
 
     def __repr__(self):
@@ -28,12 +28,11 @@ class Links(db.Model):
             link = Links.query.filter_by(public_id=link_id).first()
         except Exception as e:
             raise e
-        
+
         return link
+
     def serializer(self):
-        return {"public_id":self.public_id,"title":self.title,"access":self.access,"description":self.description,"link":self.link}
-
-
+        return {"public_id": self.public_id, "title": self.title, "access": self.access, "description": self.description, "link": self.link}
 
     def add_db(self):
         try:
@@ -45,4 +44,3 @@ class Links(db.Model):
             raise e
 
         return "success"
-        
