@@ -1,3 +1,3 @@
-from App import app
+from App import app,migrate
 if __name__ == '__main__':
 	app.run(debug=True,port=5000)
