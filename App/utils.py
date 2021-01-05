@@ -1,4 +1,7 @@
+import jwt
 from functools import wraps
+from flask import jsonify,request
+
 
 
 def generate_jwt_token():
